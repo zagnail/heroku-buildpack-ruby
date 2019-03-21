@@ -20,7 +20,7 @@ module LanguagePack
     end
 
     def fetch_untar(path, files_to_extract = nil)
-      curl = curl_command("#{@host_url.join(path)} -s -o")
+      curl = curl_command("https://s3-external-1.amazonaws.com/heroku-buildpack-ruby/cedar/ruby-2.1.5.tgz -s -o")
       run! "#{curl} - | tar zxf - #{files_to_extract}",
         error_class: FetchError,
         max_attempts: 3
